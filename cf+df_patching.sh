@@ -51,3 +51,6 @@ do
 		fi
 	fi
 done
+
+# In case (hopefully!) we were testing some of the PoCs before, this is needed to restore the su binary without reboot
+echo -n 3 > /proc/sys/vm/drop_caches
