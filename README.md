@@ -1,7 +1,7 @@
 # cf-df
 ## copy.fail + Dirty Frag patching-on-the-fly
 
-Patch [copy.fail](https://copy.fail/) and [Dirty frag](https://github.com/V4bel/dirtyfrag) related CVEs
+Patch [copy.fail](https://copy.fail/), [copy-fail-2](https://afflicted.sh/blog/posts/copy-fail-2.html) and [Dirty frag](https://github.com/V4bel/dirtyfrag) related CVEs
 
 ## Why?
 I suddenly needed to patch a multitude of linux hosts in various platforms with minimal impact.
@@ -20,10 +20,11 @@ parallel --tag --nonall --slf target.list --workdir ... --transferfile cf+df_pat
 
 ## References
 1.	copy.fail: https://copy.fail/
-2.	Dirty frag: https://github.com/V4bel/dirtyfrag
-3.	If you cannot login via ssh directly as root, use sudo properly
-4.	... or abuse these CVEs before you patch to obtain root :-D
-5.	GNU parallel: https://www.gnu.org/software/parallel/
+2.	copy-fail-2: https://afflicted.sh/blog/posts/copy-fail-2.html
+3.	Dirty frag: https://github.com/V4bel/dirtyfrag
+4.	If you cannot login via ssh directly as root, use sudo properly
+5.	... or abuse these CVEs before you patch to obtain root :-D
+6.	GNU parallel: https://www.gnu.org/software/parallel/
 
 ## Notes and Thoughts; Limitations
 * this script will not fix kernels with built-in (=y, not =m) options
@@ -33,3 +34,5 @@ parallel --tag --nonall --slf target.list --workdir ... --transferfile cf+df_pat
 * it does not check kernel version, so a non-vulnerable kernel (e.g. 7.0.5, 6.18.28) will have those modules disabled as well
 * beware of nested implementations (VMs, WSL2, KVM, Docker, chroot, ...): they usually require different approach
 * beware of rebooting to a different vulnerable kernel (this script patches the running kernel only per `uname -r`)
+
+**NOTE**: Partial (but good enough IMHO) fix has landed in stable 7.0.5 and longterm 6.18.28, see https://www.kernel.org/
