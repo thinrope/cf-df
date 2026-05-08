@@ -9,7 +9,7 @@ I don't trust the suggested method of disabling module loading, I'd rather have 
 
 ## How?
 Execute the `cf+df_patching.sh` script as root on any host. Use and configuration management system you have in place.
-Alternatively, for those odd mass cases, use the wonderfull GNU parallel[5] from a central host via ssh (run as root, ssh as root[3,4]):
+Alternatively, for those odd mass cases, use the wonderful GNU parallel[5] from a central host via ssh (run as root, ssh as root[3,4]):
 
 ````bash
 git clone https://github.com/thinrope/cf-df.git
