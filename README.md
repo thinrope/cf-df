@@ -1,7 +1,9 @@
 # cf-df
 ## copy.fail + Dirty Frag patching-on-the-fly
 
-Patch [copy.fail](https://copy.fail/), [copy-fail-2](https://afflicted.sh/blog/posts/copy-fail-2.html) and [Dirty frag](https://github.com/V4bel/dirtyfrag) related CVEs
+[**DEPRECATED**] Patch [copy.fail](https://copy.fail/), [copy-fail-2](https://afflicted.sh/blog/posts/copy-fail-2.html) and [Dirty frag](https://github.com/V4bel/dirtyfrag) related CVEs, iff you need to.
+
+*The proper fixes were incorporated in the kernel on 2026-05-11, always prefer that and use this repo only as a last resort.*
 
 ## Why?
 I suddenly needed to patch a multitude of linux hosts in various platforms with minimal impact.
@@ -35,4 +37,5 @@ parallel --tag --nonall --slf target.list --workdir ... --transferfile cf+df_pat
 * beware of nested implementations (VMs, WSL2, KVM, Docker, chroot, ...): they usually require different approach
 * beware of rebooting to a different vulnerable kernel (this script patches the running kernel only per `uname -r`)
 
-**NOTE**: Partial (but good enough IMHO) fix has landed in stable 7.0.5 and longterm 6.18.28, see https://www.kernel.org/
+**NOTE**: At 2026-05-11T06:22:00Z all three CVEs has been fixed in stable 7.0.6 and longterm 6.18.29 Linux kernel, see https://www.kernel.org/
+Update now, if you build your kernels, or wait for your distro to provide updates.
